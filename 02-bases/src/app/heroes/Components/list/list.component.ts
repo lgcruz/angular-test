@@ -17,6 +17,10 @@ export class ListComponent {
   public heroeBorrado: string = '';
 
   borrarUltimoHeroe(): void {
-    this.heroeBorrado = this.heroNames.pop() || 'no hay heroe';
+    this.heroeBorrado = this.heroNames.pop() || '';
+  }
+
+  restList(): void {
+    this.heroNames = ['Spiderman', 'Ironman', 'Hulk', 'She Hulk', 'Thor'];
   }
 }
