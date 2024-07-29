@@ -3,14 +3,19 @@
       <li
       *ngFor="let character of nameList;
       let i = index;
-      let isEven = even"
+      let isEven = even;"
 
-      class="list-group-item"
+
+      class="list-group-item d-flex justify-content-between align-items-center"
       [ngClass]="{'list-group-item-success': isEven}">
-        <span class="text-primary">{{i+1}}.</span>
-        <span>{{character.name}} -</span>
-        <strong> Power </strong>
-        <span>{{character.power}}</span>
+        <div>
+          <span class="text-primary">{{i+1}}.</span>
+          <span>{{character.name}} -</span>
+          <strong> Power </strong>
+          <span>{{character.power}}</span>
+
+        </div>
+        <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger">X</button>
 
       </li>
     </ul>
