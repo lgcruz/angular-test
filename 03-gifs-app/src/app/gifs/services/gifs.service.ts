@@ -13,7 +13,9 @@ export class GifsService {
 
   private _tagsHistory: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadLocalStorage();
+  }
 
   get tagsHistory() {
     return [...this._tagsHistory];
@@ -37,6 +39,22 @@ export class GifsService {
     if (this._tagsHistory.length > 10) {
       this._tagsHistory.pop();
     }
+    this.saveLocalStorage();
+  }
+
+  private saveLocalStorage(): void {
+    localStorage.setItem('history', JSON.stringify(this._tagsHistory));
+  }
+
+  private loadLocalStorage(): void {
+    if (!localStorage.getItem('history')) return;
+    const temporal = JSON.parse(localStorage.getItem('history')!);
+    this._tagsHistory = [...temporal];
+
+    if (this._tagsHistory.length === 0) return;
+
+    const lastTag = this._tagsHistory[0];
+    this.searchTag(lastTag);
   }
 
   async searchTag(tag: string): Promise<void> {
@@ -52,7 +70,6 @@ export class GifsService {
       .get<SearchResponse>(`${this.serviceUrl}search`, { params })
       .subscribe((resp) => {
         this._gifsList = resp.data;
-        console.log(resp.data);
       });
 
     // const resp = await fetch(
