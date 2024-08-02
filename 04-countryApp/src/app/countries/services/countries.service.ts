@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, delay, map, Observable, of } from 'rxjs';
+import { catchError, delay, map, Observable, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 import { CachedStore } from '../interfaces/cache-store.interfaces';
+import { Regions } from '../interfaces/regions.interface';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
@@ -45,14 +46,20 @@ export class CountriesService {
   }
 
   searchCapital(term: string): Observable<Country[]> {
-    return this.searchBy('capital', term);
+    return this.searchBy('capital', term).pipe(
+      tap((countries) => (this.cacheStore.byCapital = { term, countries }))
+    );
   }
 
   searchCountry(term: string): Observable<Country[]> {
-    return this.searchBy('name', term);
+    return this.searchBy('name', term).pipe(
+      tap((countries) => (this.cacheStore.byCountry = { term, countries }))
+    );
   }
 
-  searchRegion(region: string): Observable<Country[]> {
-    return this.searchBy('region', region);
+  searchRegion(region: Regions): Observable<Country[]> {
+    return this.searchBy('region', region).pipe(
+      tap((countries) => (this.cacheStore.byRegion = { region, countries }))
+    );
   }
 }
