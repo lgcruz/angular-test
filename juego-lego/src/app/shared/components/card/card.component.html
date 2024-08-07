@@ -1,0 +1,12 @@
+<div class="card w-100 mt-4 bg-light" style="width: 18rem;" >
+  <img [src]="legoSet.imgSrc" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{legoSet.name}}</h5>
+    <!-- <p class="card-text">{{lego.detail}}</p> -->
+    <div class="d-flex justify-content-between " >
+      <a href="#" class="btn btn-primary">Agregar+</a>
+    <a [href]="'/juego-lego/'+legoSet.item" class="btn btn-primary">Detalles</a>
+    </div>
+
+  </div>
+</div>
