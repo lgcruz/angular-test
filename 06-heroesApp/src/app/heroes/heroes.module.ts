@@ -23,6 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     // pipes
     HeroImagePipe,
   ],
-  imports: [CommonModule, HeroesRoutingModule, MaterialModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HeroesRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+  ],
 })
 export class HeroesModule {}
