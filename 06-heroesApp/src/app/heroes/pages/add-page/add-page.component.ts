@@ -32,4 +32,11 @@ export class AddPageComponent {
   selectPublisher(option: PublisherOption) {
     this.selectedPublisher = option;
   }
+
+  onSubmit(): void {
+    console.log({
+      valid: this.heroForm.valid,
+      value: this.heroForm.value,
+    });
+  }
 }
