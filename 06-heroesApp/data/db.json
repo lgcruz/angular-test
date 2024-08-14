@@ -21,7 +21,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": "https://resizer.glanacion.com/resizer/v2/asi-se-veria-superman-en-la-vida-real-segun-la-SS2YWWIXDVEPPIPZDHJII7NWTM.PNG?auth=ba47cfa4417daa14555b3e27c76bd60d60c3123c13c3e02b8fd2abb742d81fef&width=880&height=586&quality=70&smart=true"
     },
     {
       "id": "dc-flash",
@@ -166,6 +167,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "NZgApw6",
+      "superhero": "naruto",
+      "publisher": "DC Comics",
+      "alter_ego": "hokage",
+      "first_appearance": "naruto manga",
+      "characters": "konoha chunin",
+      "alt_img": "https://i.pinimg.com/736x/d8/e3/04/d8e3040372030c633df7f7ee5034dfef.jpg"
     }
   ]
 }
